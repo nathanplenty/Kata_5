@@ -5,21 +5,21 @@ import (
 	"strings"
 )
 
-func reverseWords(stringInput string) string {
+func reverseWords(stringIn string) string {
 	// Get each Input word without spacers as array for strings
-	stringArray := strings.Fields(stringInput)
-	// Clear Input 'stringInput'
-	stringInput = ""
-	// Append each word from 'stringArray' backwards on 'stringInput'
+	stringArray := strings.Fields(stringIn)
+	// Initialize empty output 'stringOut'
+	stringOut := ""
+	// Append each word from 'stringArray' backwards on 'stringOut'
 	for i := len(stringArray); i > 0; i-- {
-		stringInput += stringArray[i-1]
+		stringOut += stringArray[i-1]
 		if i <= len(stringArray) {
-			stringInput += " "
+			stringOut += " "
 		}
 	}
-	// Remove last spacer from 'stringInput'
-	stringInput = strings.TrimRight(stringInput, " ")
-	return stringInput
+	// Remove last spacer from 'stringOut'
+	stringOut = strings.TrimRight(stringOut, " ")
+	return stringOut
 }
 
 func main() {
