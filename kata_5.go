@@ -6,26 +6,20 @@ import (
 )
 
 func reverseWords(s string) string {
-	// 1. Get String
-	// 1.1. If String is empty -> return it (Guard)
-	if len(s) < 1 {
-		return s
-	}
-	// 2. Split after each spacer
-	rev := strings.Split(s, " ")
-	in := ""
-	for i := len(rev); i > 0; i-- {
-		if rev[i-1] == "" || rev[i-1] == " " {
-			// 3. Remove split with only spacers
-			continue
+	// Get each Input word without spacers as array for strings
+	stringArray := strings.Fields(s)
+	// Clear Input 's'
+	s = ""
+	// Append each word from 'stringArray' backwards on 's'
+	for i := len(stringArray); i > 0; i-- {
+		s += stringArray[i-1]
+		if i <= len(stringArray) {
+			s += " "
 		}
-		// 4. Append each split from the stack
-		in = in + rev[i-1] + " "
 	}
-	in = strings.TrimRight(in, " ")
-	// 5. Return reverse
-	// fmt.Printf("%q\n", in)
-	return in
+	// Remove last spacer from 's'
+	s = strings.TrimRight(s, " ")
+	return s
 }
 
 func main() {
