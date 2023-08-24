@@ -5,27 +5,12 @@ import (
 	"strings"
 )
 
-func reverseWords(s string) string {
-	// 1. Get String
-	// 1.1. If String is empty -> return it (Guard)
-	if len(s) < 1 {
-		return s
+func reverseWords(stringIn string) string {
+	stringArray := strings.Fields(stringIn)
+	for n, i := 0, len(stringArray)-1; n < i; n, i = n+1, i-1 {
+		stringArray[n], stringArray[i] = stringArray[i], stringArray[n]
 	}
-	// 2. Split after each spacer
-	rev := strings.Split(s, " ")
-	in := ""
-	for i := len(rev); i > 0; i-- {
-		if rev[i-1] == "" || rev[i-1] == " " {
-			// 3. Remove split with only spacers
-			continue
-		}
-		// 4. Append each split from the stack
-		in = in + rev[i-1] + " "
-	}
-	in = strings.TrimRight(in, " ")
-	// 5. Return reverse
-	// fmt.Printf("%q\n", in)
-	return in
+	return strings.Join(stringArray, " ")
 }
 
 func main() {
