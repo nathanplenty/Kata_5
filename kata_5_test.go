@@ -3,25 +3,25 @@ package main
 import "testing"
 
 func TestYes(t *testing.T) {
-	b := false
-	sw := "world hello"
-	sg := reverseWords(sw)
-	if sw == sg {
-		b = true
+	boolean := false
+	stringTarget := "world hello"
+	stringIn := reverseWords(stringTarget)
+	if stringTarget == stringIn {
+		boolean = true
 	}
-	if b == true {
-		t.Errorf("b = %q; want 'world hello'", sg)
+	if boolean == true {
+		t.Errorf("boolean = %q; want 'world hello'", stringIn)
 	}
 }
 
 func TestNo(t *testing.T) {
-	b := true
-	sw := "hello world"
-	sg := reverseWords(sw)
-	if sw != sg {
-		b = false
+	boolean := true
+	stringTarget := "hello world"
+	stringIn := reverseWords(stringTarget)
+	if stringTarget != stringIn {
+		boolean = false
 	}
-	if b == true {
-		t.Errorf("b = %v; want 'hello world'", sg)
+	if boolean == true {
+		t.Errorf("boolean = %v; want 'hello world'", stringIn)
 	}
 }
